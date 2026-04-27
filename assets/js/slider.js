@@ -1,5 +1,5 @@
 // ===============================
-// カードスライダー（完全版）
+// 無限ループ対応 カードスライダー（完全版）
 // ===============================
 
 // 要素取得
@@ -28,7 +28,7 @@ slides.forEach((_, i) => {
 const dots = dotsContainer.querySelectorAll("button");
 
 // -------------------------------
-// スライダー更新処理
+// スライダー更新処理（無限ループ対応）
 // -------------------------------
 function updateSlider() {
   // 横スライド
@@ -41,27 +41,23 @@ function updateSlider() {
   // ドット更新
   dots.forEach(d => d.classList.remove("active"));
   dots[index].classList.add("active");
-
-  // 矢印の表示制御
-  prevBtn.style.display = index === 0 ? "none" : "block";
-  nextBtn.style.display = index === slides.length - 1 ? "none" : "block";
 }
 
 // -------------------------------
-// 左右ボタン
+// 左右ボタン（無限ループ）
 // -------------------------------
 prevBtn.addEventListener("click", () => {
-  index = Math.max(0, index - 1);
+  index = (index - 1 + slides.length) % slides.length;
   updateSlider();
 });
 
 nextBtn.addEventListener("click", () => {
-  index = Math.min(slides.length - 1, index + 1);
+  index = (index + 1) % slides.length;
   updateSlider();
 });
 
 // -------------------------------
-// 自動スライド（必要なら ON）
+// 自動スライド（無限ループ）
 // -------------------------------
 setInterval(() => {
   index = (index + 1) % slides.length;
