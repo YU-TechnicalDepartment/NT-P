@@ -1,42 +1,55 @@
+/* ------------------------------
+   Base
+------------------------------ */
+
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: #f5f7fa;
+  background: #fafafa;
   color: #1e293b;
 }
 
-/* Header */
+/* ------------------------------
+   Header（細いバー）
+------------------------------ */
+
 .header {
-  padding: 20px;
-  font-size: 26px;
-  font-weight: 700;
-  text-align: center;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e2e8f0;
+  height: 52px; /* ← 細い */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .header.small {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  height: 48px;
+  font-size: 18px;
+  justify-content: flex-start;
+  padding-left: 16px;
 }
 
 .back {
   color: #0ea5e9;
   text-decoration: none;
+  margin-right: 12px;
 }
 
-/* -----------------------------
-   Slider (16:9 enforced)
+/* ------------------------------
+   Slider（16:9固定）
 ------------------------------ */
 
 .slider-container {
   width: 100%;
-  aspect-ratio: 16 / 9;   /* ← 16:9 強制 */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  margin-top: 10px;
+  margin: 24px auto;
+  max-width: 1100px; /* ← モデラボ風に中央寄せ */
   border-radius: 12px;
   background: #e2e8f0;
 }
@@ -50,8 +63,8 @@ body {
 .slide {
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* ← 中央クロップ */
-  object-position: center; /* ← 中央基準 */
+  object-fit: cover;
+  object-position: center;
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
@@ -61,11 +74,12 @@ body {
   opacity: 1;
 }
 
-/* Responsive slider height fallback */
+/* Responsive fallback */
 @media (max-width: 768px) {
   .slider-container {
     aspect-ratio: unset;
     height: 220px;
+    margin: 16px;
   }
 }
 
@@ -75,15 +89,17 @@ body {
   }
 }
 
-/* -----------------------------
-   Menu
+/* ------------------------------
+   Menu（軽いカード）
 ------------------------------ */
 
 .menu {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 20px;
+  gap: 20px;
 }
 
 @media (max-width: 600px) {
@@ -94,23 +110,30 @@ body {
 
 .menu-item {
   background: #ffffff;
-  padding: 18px;
-  border-radius: 14px;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
   color: #1e293b;
   text-decoration: none;
   font-size: 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* ← 軽い影 */
   transition: 0.2s;
 }
 
 .menu-item:hover {
-  background: #f1f5f9;
+  background: #f8fafc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
-/* Content pages */
+/* ------------------------------
+   Content pages
+------------------------------ */
+
 .content {
-  padding: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 .button {
@@ -123,15 +146,21 @@ body {
   font-weight: 600;
 }
 
-/* Ranking */
+/* ------------------------------
+   Ranking
+------------------------------ */
+
 .ranking-section {
-  padding: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 #ranking-box {
   background: #ffffff;
   padding: 20px;
   border-radius: 12px;
+  border: 1px solid #e5e7eb;
   white-space: pre-wrap;
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
