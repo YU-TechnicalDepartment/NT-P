@@ -271,17 +271,73 @@ body {
 .card-slider {
   max-width: 1100px;
   margin: 40px auto;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
+/* 横並びにする */
+.card-slider-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* 各スライド */
 .card-slide {
-  width: 100%;
-  display: none;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 .card-slide.active {
-  display: block;
+  opacity: 1;
+}
+
+/* 左右ボタン */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 32px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.slider-btn:hover {
+  background: white;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* ドット */
+.slider-dots {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.slider-dots button {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+}
+
+.slider-dots button.active {
+  background: #0ea5e9;
 }
 
 /* モデラボ風カード（そのまま） */
