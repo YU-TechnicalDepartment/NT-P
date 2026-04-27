@@ -1,15 +1,52 @@
-// カードスライダー
+const track = document.querySelector(".card-slider-track");
 const slides = document.querySelectorAll(".card-slide");
+const dotsContainer = document.querySelector(".slider-dots");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
 let index = 0;
 
-function showSlide(i) {
+/* ドット生成 */
+slides.forEach((_, i) => {
+  const dot = document.createElement("button");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+
+  dot.addEventListener("click", () => {
+    index = i;
+    updateSlider();
+  });
+});
+
+const dots = dotsContainer.querySelectorAll("button");
+
+/* スライダー更新 */
+function updateSlider() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+
   slides.forEach(s => s.classList.remove("active"));
-  slides[i].classList.add("active");
+  slides[index].classList.add("active");
+
+  dots.forEach(d => d.classList.remove("active"));
+  dots[index].classList.add("active");
 }
 
-showSlide(index);
+/* 左右ボタン */
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  updateSlider();
+});
 
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  updateSlider();
+});
+
+/* 自動スライド */
 setInterval(() => {
   index = (index + 1) % slides.length;
-  showSlide(index);
-}, 4000);
+  updateSlider();
+}, 5000);
+
+/* 初期表示 */
+updateSlider();
