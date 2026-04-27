@@ -28,12 +28,17 @@ body {
   text-decoration: none;
 }
 
-/* Slider */
+/* -----------------------------
+   Slider (16:9 enforced)
+------------------------------ */
+
 .slider-container {
   width: 100%;
-  height: 260px;
+  aspect-ratio: 16 / 9;   /* ← 16:9 強制 */
   overflow: hidden;
   margin-top: 10px;
+  border-radius: 12px;
+  background: #e2e8f0;
 }
 
 .slider {
@@ -45,7 +50,8 @@ body {
 .slide {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;       /* ← 中央クロップ */
+  object-position: center; /* ← 中央基準 */
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
@@ -55,12 +61,35 @@ body {
   opacity: 1;
 }
 
-/* Menu */
+/* Responsive slider height fallback */
+@media (max-width: 768px) {
+  .slider-container {
+    aspect-ratio: unset;
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-container {
+    height: 180px;
+  }
+}
+
+/* -----------------------------
+   Menu
+------------------------------ */
+
 .menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    grid-template-columns: 1fr;
+  }
 }
 
 .menu-item {
