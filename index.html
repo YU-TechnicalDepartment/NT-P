@@ -18,6 +18,7 @@
   <!-- スライド全体を横に並べる -->
   <div class="card-slider-track">
 
+    <!-- 1枚目 -->
     <div class="card-slide">
       <div class="modelabo-card">
         <div class="modelabo-card-image">
@@ -35,6 +36,7 @@
       </div>
     </div>
 
+    <!-- 2枚目 -->
     <div class="card-slide">
       <div class="modelabo-card">
         <div class="modelabo-card-image">
@@ -51,13 +53,33 @@
         </div>
       </div>
     </div>
-    
-  <!-- ドット -->
-  <div class="slider-dots"></div>
-    
-  <!-- 左右ボタン -->
+
+    <!-- 3枚目（必要なら） -->
+    <div class="card-slide">
+      <div class="modelabo-card">
+        <div class="modelabo-card-image">
+          <img src="assets/images/03.png" alt="">
+        </div>
+        <div class="modelabo-card-text">
+          <div class="modelabo-card-title">作品応募はこちら！</div>
+          <div class="modelabo-card-desc">
+            Scratch の応募ページから簡単に申請できます。
+          </div>
+          <div class="modelabo-card-btn">
+            <a href="apply.html" class="modelabo-btn">応募する</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- ← ★ ここで track を閉じるのが重要！ -->
+
+  <!-- ★ 左右ボタン（track の外に置く） -->
   <button class="slider-btn prev">‹</button>
   <button class="slider-btn next">›</button>
+
+  <!-- ★ ドット -->
+  <div class="slider-dots"></div>
 
 </section>
 
