@@ -64,21 +64,10 @@ body {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .slider-container {
-    aspect-ratio: unset;
-    height: 220px;
-    margin: 16px;
-  }
-}
+/* ------------------------------
+   横長カード（半透明グレー）
+------------------------------ */
 
-@media (max-width: 480px) {
-  .slider-container {
-    height: 180px;
-  }
-}
-
-/* 横長カード */
 .feature-card {
   width: 100%;
   max-width: 1100px;
@@ -87,10 +76,13 @@ body {
   gap: 24px;
   padding: 24px;
   border-radius: 16px;
-  background: rgba(0,0,0,0.05);
+
+  /* ここが重要（半透明グレー） */
+  background: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .feature-card img {
@@ -119,6 +111,7 @@ body {
   color: #475569;
 }
 
+/* レスポンシブ */
 @media (max-width: 768px) {
   .feature-card {
     flex-direction: column;
