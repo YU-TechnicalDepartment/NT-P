@@ -1,15 +1,18 @@
 // assets/js/slider.js
 
+// GitHub Pages ではフォルダ一覧を取得できないため、
+// 画像ファイル名を手動で配列に書く方式に変更
+const imageFiles = [
+  "01.jpg",
+  "02.jpg",
+  "03.jpg"
+  // 必要に応じて追加
+];
+
 const slider = document.getElementById("slider");
 
-async function loadImages() {
-  const res = await fetch("assets/images/");
-  const text = await res.text();
-
-  // 画像ファイル名を抽出（jpg/png/webp）
-  const files = [...text.matchAll(/href="([^"]+\.(jpg|png|webp))"/g)].map(m => m[1]);
-
-  files.forEach((file, i) => {
+function loadImages() {
+  imageFiles.forEach((file, i) => {
     const img = document.createElement("img");
     img.src = "assets/images/" + file;
     img.className = "slide";
@@ -22,6 +25,8 @@ async function loadImages() {
 
 function startSlider() {
   const slides = document.querySelectorAll(".slide");
+  if (slides.length === 0) return; // 画像がない場合は停止
+
   let index = 0;
 
   setInterval(() => {
