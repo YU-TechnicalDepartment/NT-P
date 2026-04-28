@@ -1,3 +1,6 @@
+/* =========================
+   全体
+========================= */
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -5,287 +8,155 @@ body {
   color: #1e293b;
 }
 
-/* Header */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   ヘッダー
+========================= */
 .header {
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: 500;
+  height: 80px;
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
-.header.small {
-  height: 48px;
-  font-size: 18px;
-  justify-content: flex-start;
-  padding-left: 16px;
+.header-logo img {
+  height: 55px;
 }
 
-.back {
-  color: #0ea5e9;
-  text-decoration: none;
-  margin-right: 12px;
-}
-
-/* Slider */
-.slider-container {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  margin: 24px auto;
+/* =========================
+   4つのボタン（2×2）
+========================= */
+.top-buttons {
   max-width: 1100px;
-  border-radius: 12px;
-  background: #e2e8f0;
-}
-
-.slider {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.slide {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-/* ------------------------------
-   横長カード（半透明グレー）
------------------------------- */
-
-.feature-card {
-  width: 100%;
-  max-width: 1100px;
-  margin: 40px auto;
-  display: flex;
-  gap: 24px;
-  padding: 24px;
-  border-radius: 16px;
-
-  /* ここが重要（半透明グレー） */
-  background: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(6px);
-
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.feature-card img {
-  width: 48%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.feature-card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.feature-card-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.feature-card-desc {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #475569;
-}
-
-/* レスポンシブ */
-@media (max-width: 768px) {
-  .feature-card {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .feature-card img {
-    width: 100%;
-  }
-}
-
-/* Menu */
-.menu {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px;
+  margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 12px;
+  padding: 0 20px;
 }
 
-@media (max-width: 600px) {
-  .menu {
-    grid-template-columns: 1fr;
-  }
+.top-buttons button {
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.top-buttons button:hover {
+  background: #f1f5f9;
+}
+
+/* =========================
+   セクション共通
+========================= */
+.section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.center-text {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.link-button {
+  display: block;
+  width: 260px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #0ea5e9;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* =========================
+   お知らせ
+========================= */
+.news-box {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.news-item {
+  margin-bottom: 16px;
+}
+
+.news-item-title {
+  font-weight: 600;
+}
+
+.news-item-date {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* =========================
+   メニュー
+========================= */
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .menu-item {
   background: #ffffff;
   padding: 20px;
   border-radius: 12px;
-  text-align: center;
-  color: #1e293b;
-  text-decoration: none;
-  font-size: 16px;
   border: 1px solid #e5e7eb;
+  text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   transition: 0.2s;
 }
 
 .menu-item:hover {
   background: #f8fafc;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
-/* Content */
-.content {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.button {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #0ea5e9;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Ranking */
-.ranking-section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-#ranking-box {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  white-space: pre-wrap;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-}
-/* ------------------------------------
-   モデラボ風 横長カード
------------------------------------- */
-
-.modelabo-card {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 24px;
-  display: flex;
-  gap: 24px;
-
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-/* 左側の画像 */
-.modelabo-card-image {
-  width: 45%;
-}
-
-.modelabo-card-image img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* 右側のテキスト */
-.modelabo-card-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.modelabo-card-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #1e293b;
-}
-
-.modelabo-card-desc {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #475569;
-  margin-bottom: 16px;
-}
-
-.modelabo-card-btn {
-  margin-top: auto;
-}
-
-.modelabo-btn {
-  display: inline-block;
-  padding: 10px 18px;
-  background: #0ea5e9;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .modelabo-card {
-    flex-direction: column;
-  }
-
-  .modelabo-card-image {
-    width: 100%;
-  }
-}
-/* ------------------------------------
+/* =========================
    カードスライダー
------------------------------------- */
-
+========================= */
 .card-slider {
   max-width: 1100px;
-  margin: 40px auto;
+  margin: 20px auto 0;
   position: relative;
   overflow: hidden;
 }
 
-/* 横並びにする */
 .card-slider-track {
   display: flex;
   transition: transform 0.6s ease;
 }
 
-/* 各スライド */
 .card-slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
+  min-width: 90%; /* ← 少し縮めて中央寄せ */
+  margin: 0 auto;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
@@ -294,42 +165,16 @@ body {
   opacity: 1;
 }
 
-/* 左右ボタン */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
-  border: none;
-  font-size: 32px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.slider-btn:hover {
-  background: white;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* ドット */
+/* ドットの距離を縮める（9分の2 ≒ 22%） */
 .slider-dots {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .slider-dots button {
   width: 10px;
   height: 10px;
-  margin: 0 4px;
+  margin: 0 3px;
   border-radius: 50%;
   border: none;
   background: #cbd5e1;
@@ -340,7 +185,26 @@ body {
   background: #0ea5e9;
 }
 
-/* モデラボ風カード（そのまま） */
+/* 左右ボタン */
+.slider-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 32px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* =========================
+   モデラボ風カード
+========================= */
 .modelabo-card {
   width: 100%;
   padding: 24px;
@@ -358,7 +222,7 @@ body {
 
 .modelabo-card-image img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -389,17 +253,37 @@ body {
   background: #0ea5e9;
   color: white;
   border-radius: 8px;
-  text-decoration: none;
   font-weight: 600;
 }
 
-/* レスポンシブ */
-@media (max-width: 768px) {
-  .modelabo-card {
-    flex-direction: column;
-  }
+/* =========================
+   記事一覧
+========================= */
+.article-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
 
-  .modelabo-card-image {
-    width: 100%;
-  }
+.article-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.article-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.article-date {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.article-summary {
+  margin-top: 8px;
 }
