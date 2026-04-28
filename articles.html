@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>記事一覧 - 新傾向</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <img src="assets/images/logo.png" alt="新傾向ロゴ">
+  </a>
+</header>
+
+<section class="article-list" id="article-list">
+  読み込み中…
+</section>
+
+<script>
+fetch("articles.json")
+  .then(res => res.json())
+  .then(data => {
+    const box = document.getElementById("article-list");
+    box.innerHTML = "";
+
+    data.forEach(a => {
+      box.innerHTML += `
+        <div class="article-card">
+          <div class="article-title">${a.title}</div>
+          <div class="article-date">${a.date}</div>
+          <div class="article-summary">${a.summary}</div>
+          <a href="${a.url}" class="link-button" style="margin-top:12px; display:inline-block;">読む</a>
+        </div>
+      `;
+    });
+  });
+</script>
+
+</body>
+</html>
