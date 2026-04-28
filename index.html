@@ -18,13 +18,17 @@
 </header>
 
 <!-- =========================
-     4つのボタン（2×2）
+     メニュー（見出し＋4ボタン 2×2）
 ========================= -->
-<section class="top-buttons">
-  <button data-scroll="menu">メニュー</button>
-  <button data-scroll="scratch">Scratchと連携</button>
-  <button data-scroll="news">お知らせ</button>
-  <a href="articles.html"><button>記事</button></a>
+<section id="menu" class="section">
+  <h2 class="section-title">メニュー</h2>
+
+  <div class="top-buttons">
+    <button data-scroll="menu-links">メニュー</button>
+    <button data-scroll="scratch">Scratchと連携</button>
+    <button data-scroll="news">お知らせ</button>
+    <a href="articles.html"><button>記事</button></a>
+  </div>
 </section>
 
 <!-- =========================
@@ -95,10 +99,10 @@
 </section>
 
 <!-- =========================
-     メニュー
+     ポータル内リンク（旧メニューセクション）
 ========================= -->
-<section id="menu" class="section">
-  <h2 class="section-title">メニュー</h2>
+<section id="menu-links" class="section">
+  <h2 class="section-title">ポータル内リンク</h2>
 
   <div class="menu">
     <a href="about.html" class="menu-item">
