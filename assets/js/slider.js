@@ -22,7 +22,7 @@ const dots = dotsContainer.querySelectorAll("button");
 
 /* 更新処理 */
 function updateSlider() {
-  track.style.transform = `translateX(-${index * 100}%)`;
+  track.style.transform = `translateX(-${index * 95}%)`;
 
   slides.forEach(s => s.classList.remove("active"));
   slides[index].classList.add("active");
