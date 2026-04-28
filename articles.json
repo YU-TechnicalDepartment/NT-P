@@ -1,0 +1,14 @@
+[
+  {
+    "title": "新傾向とは？",
+    "date": "2026-04-28",
+    "summary": "新傾向の仕組みや目的を解説します。",
+    "url": "articles/shinkeiko.html"
+  },
+  {
+    "title": "ランキングの仕組み",
+    "date": "2026-04-27",
+    "summary": "ランキングがどのように生成されるかを説明します。",
+    "url": "articles/ranking-system.html"
+  }
+]
