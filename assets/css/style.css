@@ -6,6 +6,10 @@ body {
   font-family: "Inter", sans-serif;
   background: #fafafa;
   color: #1e293b;
+
+  /* ←←← ★ 追加：ページ左右に余白をつける */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 a {
@@ -36,10 +40,10 @@ a {
 .header-nav {
   display: flex;
   gap: 12px;
-  margin-left: 24px; /* ロゴとの間隔 */
+  margin-left: 24px;
 }
 
-/* ヘッダーのボタンデザイン（トップボタンと同じテイスト） */
+/* ヘッダーのボタンデザイン */
 .header-nav .nav-btn {
   padding: 10px 16px;
   font-size: 15px;
@@ -57,7 +61,6 @@ a {
 
 /* =========================
    4つのボタン（2×2）
-   ※今は使っていなくても残しておく
 ========================= */
 .top-buttons {
   max-width: 1100px;
@@ -179,7 +182,7 @@ a {
 }
 
 .card-slide {
-  min-width: 95.5%; /* ← 少し縮めて中央寄せ */
+  min-width: 95.5%;
   margin: 0 auto;
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -189,7 +192,6 @@ a {
   opacity: 1;
 }
 
-/* ドットの距離を縮める（9分の2 ≒ 22%） */
 .slider-dots {
   text-align: center;
   margin-top: 10px;
@@ -209,7 +211,6 @@ a {
   background: #0ea5e9;
 }
 
-/* 左右ボタン */
 .slider-btn {
   position: absolute;
   top: 45%;
