@@ -8,12 +8,6 @@ body {
   color: #1e293b;
 }
 
-/* ←←← ★ 本文用の左右余白（ヘッダーには影響しない） */
-.page-container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -62,38 +56,12 @@ a {
 }
 
 /* =========================
-   4つのボタン（2×2）
-========================= */
-.top-buttons {
-  max-width: 1100px;
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 0 20px;
-}
-
-.top-buttons button {
-  padding: 16px;
-  font-size: 18px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.top-buttons button:hover {
-  background: #f1f5f9;
-}
-
-/* =========================
-   セクション共通
+   セクション共通（★本文の左右余白）
 ========================= */
 .section {
   max-width: 1100px;
   margin: 60px auto;
-  padding: 0 20px;
+  padding: 0 20px; /* ←←← ★ これが本文の左右余白 */
 }
 
 .section-title {
