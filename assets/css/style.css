@@ -14,7 +14,7 @@ a {
 }
 
 /* =========================
-   ヘッダー
+   ヘッダー（左右切れない）
 ========================= */
 .header {
   height: 80px;
@@ -22,7 +22,7 @@ a {
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 20px; /* ← ヘッダー専用の余白 */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -32,12 +32,14 @@ a {
   height: 55px;
 }
 
+/* ヘッダー内ナビ（左寄せボタン） */
 .header-nav {
   display: flex;
   gap: 12px;
   margin-left: 24px;
 }
 
+/* ヘッダーのボタンデザイン */
 .header-nav .nav-btn {
   padding: 10px 16px;
   font-size: 15px;
@@ -54,18 +56,61 @@ a {
 }
 
 /* =========================
-   セクション共通
+   セクション共通（★本文の左右余白）
 ========================= */
 .section {
   max-width: 1100px;
   margin: 60px auto;
-  padding: 0 20px;
+  padding: 0 20px; /* ←←← ★ これが本文の左右余白 */
 }
 
 .section-title {
   text-align: center;
   font-size: 26px;
   margin-bottom: 20px;
+}
+
+.center-text {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.link-button {
+  display: block;
+  width: 260px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #0ea5e9;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* =========================
+   お知らせ
+========================= */
+.news-box {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.news-item {
+  margin-bottom: 16px;
+}
+
+.news-item-title {
+  font-weight: 600;
+}
+
+.news-item-date {
+  font-size: 13px;
+  color: #64748b;
 }
 
 /* =========================
@@ -85,6 +130,10 @@ a {
   text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   transition: 0.2s;
+}
+
+.menu-item:hover {
+  background: #f8fafc;
 }
 
 /* =========================
@@ -112,6 +161,41 @@ a {
 .card-slide.active {
   opacity: 1;
 }
+
+.slider-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slider-dots button {
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+}
+
+.slider-dots button.active {
+  background: #0ea5e9;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 32px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
 
 /* =========================
    モデラボ風カード
@@ -145,6 +229,28 @@ a {
   justify-content: center;
 }
 
+.modelabo-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.modelabo-card-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.modelabo-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #0ea5e9;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
 /* =========================
    記事一覧
 ========================= */
@@ -154,65 +260,25 @@ a {
   padding: 0 20px;
 }
 
-/* ============================================================
-   ★★★ レスポンシブデザイン（スマホ対応）ここから ★★★
-============================================================ */
-@media (max-width: 768px) {
+.article-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
 
-  /* ヘッダー */
-  .header {
-    height: auto;
-    padding: 12px 16px;
-    flex-wrap: wrap;
-  }
+.article-title {
+  font-size: 20px;
+  font-weight: 600;
+}
 
-  .header-logo img {
-    height: 45px;
-  }
+.article-date {
+  font-size: 13px;
+  color: #64748b;
+}
 
-  .header-nav {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .header-nav .nav-btn {
-    flex: 1;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-  }
-
-  /* セクション余白 */
-  .section {
-    margin: 40px auto;
-    padding: 0 16px;
-  }
-
-  /* メニュー（1列に） */
-  .menu {
-    grid-template-columns: 1fr;
-  }
-
-  /* モデラボカード（縦並び） */
-  .modelabo-card {
-    flex-direction: column;
-  }
-
-  .modelabo-card-image {
-    width: 100%;
-  }
-
-  /* スライダーの幅調整 */
-  .card-slide {
-    min-width: 100%;
-  }
-
-  /* スライダーの左右ボタンを小さく */
-  .slider-btn {
-    font-size: 24px;
-    padding: 4px 10px;
-  }
+.article-summary {
+  margin-top: 8px;
 }
