@@ -2,19 +2,31 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ランキング - 新傾向</title>
+  <title>ランキングを見る</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-<!-- ヘッダー読み込みエリア -->
-<div id="header"></div>
-<script src="assets/js/load-header.js"></script>
+  <!-- 共通ヘッダー -->
+  <div id="header"></div>
+  <script src="assets/js/load-header.js"></script>
 
-<section class="ranking-section">
-  <pre id="ranking-box">読み込み中...</pre>
-</section>
+  <!-- 本文 -->
+  <section class="section">
+    <h2>本日のランキング</h2>
 
-<script src="assets/js/ranking.js"></script>
+    <pre id="ranking-box" style="
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      overflow-x:auto;
+      white-space:pre-wrap;
+    ">読み込み中…</pre>
+  </section>
+
+  <script src="assets/js/ranking.js"></script>
+
 </body>
 </html>
