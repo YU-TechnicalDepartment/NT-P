@@ -6,8 +6,10 @@ body {
   font-family: "Inter", sans-serif;
   background: #fafafa;
   color: #1e293b;
+}
 
-  /* ←←← ★ 追加：ページ左右に余白をつける */
+/* ←←← ★ 本文用の左右余白（ヘッダーには影響しない） */
+.page-container {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -18,7 +20,7 @@ a {
 }
 
 /* =========================
-   ヘッダー
+   ヘッダー（左右切れない）
 ========================= */
 .header {
   height: 80px;
@@ -26,7 +28,7 @@ a {
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 20px; /* ← ヘッダー専用の余白 */
   position: sticky;
   top: 0;
   z-index: 100;
