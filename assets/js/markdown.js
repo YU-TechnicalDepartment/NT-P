@@ -1,51 +1,51 @@
-// 正規表現を使わない安全な Markdown パーサー
+// 正規表現を一切使わない Markdown パーサー
 function mdToHtml(md) {
   const lines = md.split("\n");
   let html = "";
+  let listBuffer = [];
+
+  const flushList = () => {
+    if (listBuffer.length > 0) {
+      html += "<ul>";
+      listBuffer.forEach(item => html += `<li>${item}</li>`);
+      html += "</ul>";
+      listBuffer = [];
+    }
+  };
 
   lines.forEach(line => {
+    const trimmed = line.trim();
 
     // 見出し
-    if (line.startsWith("### ")) {
-      html += `<h3>${line.slice(4)}</h3>`;
+    if (trimmed.startsWith("### ")) {
+      flushList();
+      html += `<h3>${trimmed.slice(4)}</h3>`;
       return;
     }
-    if (line.startsWith("## ")) {
-      html += `<h2>${line.slice(3)}</h2>`;
+    if (trimmed.startsWith("## ")) {
+      flushList();
+      html += `<h2>${trimmed.slice(3)}</h2>`;
       return;
     }
-    if (line.startsWith("# ")) {
-      html += `<h1>${line.slice(2)}</h1>`;
+    if (trimmed.startsWith("# ")) {
+      flushList();
+      html += `<h1>${trimmed.slice(2)}</h1>`;
       return;
     }
 
     // 箇条書き
-    if (line.startsWith("- ")) {
-      html += `<li>${line.slice(2)}</li>`;
+    if (trimmed.startsWith("- ")) {
+      listBuffer.push(trimmed.slice(2));
       return;
     }
 
-    // 太字 **text**
-    line = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-
-    // 斜体 *text*
-    line = line.replace(/\*(.*?)\*/g, "<em>$1</em>");
-
-    // リンク [text](url)
-    line = line.replace(/
-
-\[(.*?)\]
-
-\((.*?)\)/g, '<a href="$2">$1</a>');
-
     // 通常段落
-    if (line.trim() !== "") {
-      html += `<p>${line}</p>`;
+    flushList();
+    if (trimmed !== "") {
+      html += `<p>${trimmed}</p>`;
     }
   });
 
-  // 箇条書きの <li> を <ul> で囲む
-  html = html.replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>");
-
+  flushList();
   return html;
 }
