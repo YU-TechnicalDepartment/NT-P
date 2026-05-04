@@ -1,27 +1,51 @@
-// Markdown → HTML 変換（軽量版）
+// 正規表現を使わない安全な Markdown パーサー
 function mdToHtml(md) {
-  let html = md;
+  const lines = md.split("\n");
+  let html = "";
 
-  // 見出し
-  html = html.replace(/^### (.*)$/gim, "<h3>$1</h3>");
-  html = html.replace(/^## (.*)$/gim, "<h2>$1</h2>");
-  html = html.replace(/^# (.*)$/gim, "<h1>$1</h1>");
+  lines.forEach(line => {
 
-  // 太字（**text**）
-  html = html.replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>");
+    // 見出し
+    if (line.startsWith("### ")) {
+      html += `<h3>${line.slice(4)}</h3>`;
+      return;
+    }
+    if (line.startsWith("## ")) {
+      html += `<h2>${line.slice(3)}</h2>`;
+      return;
+    }
+    if (line.startsWith("# ")) {
+      html += `<h1>${line.slice(2)}</h1>`;
+      return;
+    }
 
-  // 斜体（*text*）
-  html = html.replace(/\*(.*?)\*/gim, "<em>$1</em>");
+    // 箇条書き
+    if (line.startsWith("- ")) {
+      html += `<li>${line.slice(2)}</li>`;
+      return;
+    }
 
-  // リンク [text](url)
-  html = html.replace(/
+    // 太字 **text**
+    line = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+    // 斜体 *text*
+    line = line.replace(/\*(.*?)\*/g, "<em>$1</em>");
+
+    // リンク [text](url)
+    line = line.replace(/
 
 \[(.*?)\]
 
-\((.*?)\)/gim, '<a href="$2">$1</a>');
+\((.*?)\)/g, '<a href="$2">$1</a>');
 
-  // 改行
-  html = html.replace(/\n/g, "<br>");
+    // 通常段落
+    if (line.trim() !== "") {
+      html += `<p>${line}</p>`;
+    }
+  });
 
-  return html.trim();
+  // 箇条書きの <li> を <ul> で囲む
+  html = html.replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>");
+
+  return html;
 }
