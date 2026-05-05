@@ -4,5 +4,11 @@
     "date": "2026-05-04",
     "summary": "ポータルではどんなことが行えるのか、解説します。",
     "url": "article-template.html?md=pot.md"
+  },
+  {
+    "title": "ディスコードに参加しませんか？",
+    "date": "2026-05-06",
+    "summary": "ディスコードのリンクを貼っておきます。",
+    "url": "article-template.html?md=dis.md"
   }
 ]
