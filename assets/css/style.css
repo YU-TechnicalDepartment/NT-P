@@ -282,3 +282,101 @@ a {
 .article-summary {
   margin-top: 8px;
 }
+
+/* =========================
+   レスポンシブ対応（タブレット・スマホ共通：1024px以下）
+========================= */
+@media (max-width: 1024px) {
+  .modelabo-card {
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* =========================
+   レスポンシブ対応（スマホメイン：768px以下）
+========================= */
+@media (max-width: 768px) {
+  /* 全体・ヘッダー */
+  .header {
+    height: 70px; /* 少し低く */
+    padding: 0 16px;
+  }
+  .header-logo img {
+    height: 45px; /* ロゴを少し縮小 */
+  }
+  .header-nav {
+    margin-left: 12px;
+    gap: 8px;
+    overflow-x: auto; /* ボタンが多い場合に横スクロール可能に */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .header-nav .nav-btn {
+    padding: 8px 12px;
+    font-size: 13px; /* ボタンをコンパクトに */
+  }
+
+  /* セクション共通 */
+  .section {
+    margin: 40px auto; /* 上下余白を狭める */
+    padding: 0 16px; /* 左右余白を少し詰める */
+  }
+  .section-title {
+    font-size: 22px; /* タイトルを少し小さく */
+  }
+
+  /* メニュー（2段組を1段組に） */
+  .menu {
+    grid-template-columns: 1fr; /* 縦並びに変更 */
+    gap: 12px;
+  }
+
+  /* カードスライダー（左右ボタンを非表示 or 調整） */
+  .card-slide {
+    min-width: 100%; /* 横幅いっぱいに */
+  }
+  .slider-btn {
+    font-size: 24px;
+    padding: 4px 10px;
+    top: auto;
+    bottom: -45px; /* スマホ時はボタンを下に逃がす（画像に被るのを防ぐ場合） */
+    display: none; /* もしスワイプ実装なら、いっそ非表示でもOK */
+  }
+  /* ※スライダー全体の余白調整（下にボタンを配置する場合用） */
+  /* .card-slider { margin-bottom: 50px; } */
+
+  /* モデラボ風カード（横並びを縦並びに） */
+  .modelabo-card {
+    flex-direction: column; /* 縦並びに変更 */
+    gap: 16px;
+  }
+  .modelabo-card-image {
+    width: 100%; /* 画像を横幅いっぱいに */
+  }
+  .modelabo-card-text {
+    text-align: center; /* スマホでは中央寄せが見栄えが良い */
+  }
+  .modelabo-card-title {
+    font-size: 18px;
+  }
+  .modelabo-card-desc {
+    font-size: 14px;
+  }
+  .modelabo-btn {
+    display: block; /* ボタンを押しやすく幅いっぱいに */
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  /* 記事一覧 */
+  .article-list {
+    padding: 0 16px;
+  }
+  .article-card {
+    padding: 16px;
+  }
+  .article-title {
+    font-size: 18px;
+  }
+}
