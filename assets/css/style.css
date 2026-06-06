@@ -297,85 +297,107 @@ a {
    レスポンシブ対応（スマホメイン：768px以下）
 ========================= */
 @media (max-width: 768px) {
-  /* 全体・ヘッダー */
+
+  /* ===== ヘッダー ===== */
   .header {
-    height: 70px; /* 少し低く */
-    padding: 0 16px;
+    height: auto;
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
+
   .header-logo img {
-    height: 45px; /* ロゴを少し縮小 */
+    height: 42px;
   }
+
   .header-nav {
-    margin-left: 12px;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    overflow-x: auto; /* ボタンが多い場合に横スクロール可能に */
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
   }
+
   .header-nav .nav-btn {
-    padding: 8px 12px;
-    font-size: 13px; /* ボタンをコンパクトに */
-  }
-
-  /* セクション共通 */
-  .section {
-    margin: 40px auto; /* 上下余白を狭める */
-    padding: 0 16px; /* 左右余白を少し詰める */
-  }
-  .section-title {
-    font-size: 22px; /* タイトルを少し小さく */
-  }
-
-  /* メニュー（2段組を1段組に） */
-  .menu {
-    grid-template-columns: 1fr; /* 縦並びに変更 */
-    gap: 12px;
-  }
-
-  /* カードスライダー（左右ボタンを非表示 or 調整） */
-  .card-slide {
-    min-width: 100%; /* 横幅いっぱいに */
-  }
-  .slider-btn {
-    font-size: 24px;
-    padding: 4px 10px;
-    top: auto;
-    bottom: -45px; /* スマホ時はボタンを下に逃がす（画像に被るのを防ぐ場合） */
-    display: none; /* もしスワイプ実装なら、いっそ非表示でもOK */
-  }
-  /* ※スライダー全体の余白調整（下にボタンを配置する場合用） */
-  /* .card-slider { margin-bottom: 50px; } */
-
-  /* モデラボ風カード（横並びを縦並びに） */
-  .modelabo-card {
-    flex-direction: column; /* 縦並びに変更 */
-    gap: 16px;
-  }
-  .modelabo-card-image {
-    width: 100%; /* 画像を横幅いっぱいに */
-  }
-  .modelabo-card-text {
-    text-align: center; /* スマホでは中央寄せが見栄えが良い */
-  }
-  .modelabo-card-title {
-    font-size: 18px;
-  }
-  .modelabo-card-desc {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
     font-size: 14px;
   }
-  .modelabo-btn {
-    display: block; /* ボタンを押しやすく幅いっぱいに */
-    width: fit-content;
-    margin: 0 auto;
+
+  /* ===== セクション ===== */
+  .section {
+    margin: 40px auto;
+    padding: 0 18px;
   }
 
-  /* 記事一覧 */
+  .section-title {
+    font-size: 22px;
+  }
+
+  /* ===== メニュー（縦並び） ===== */
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .menu-item {
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  /* ===== カードスライダー ===== */
+  .card-slide {
+    min-width: 100%;
+  }
+
+  .slider-btn {
+    font-size: 26px;
+    padding: 6px 12px;
+    top: 50%;
+    display: block; /* ← スマホでも操作できるように戻す */
+  }
+
+  /* ===== モデラボカード ===== */
+  .modelabo-card {
+    flex-direction: column;
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .modelabo-card-image {
+    width: 100%;
+  }
+
+  .modelabo-card-text {
+    text-align: left;
+  }
+
+  .modelabo-card-title {
+    font-size: 20px;
+  }
+
+  .modelabo-card-desc {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .modelabo-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* ===== 記事一覧 ===== */
   .article-list {
     padding: 0 16px;
   }
+
   .article-card {
-    padding: 16px;
+    padding: 18px;
   }
+
   .article-title {
     font-size: 18px;
   }
