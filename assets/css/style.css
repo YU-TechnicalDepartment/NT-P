@@ -301,15 +301,25 @@ a {
   /* ===== 全体 ===== */
   body {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.75;
+  }
+
+  /* ===== セクション ===== */
+  .section {
+    margin: 48px auto;      /* 余白を広げて読みやすく */
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
   }
 
   /* ===== ヘッダー ===== */
   .header {
     height: auto;
-    padding: 12px 16px;
+    padding: 14px 16px;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 
   .header-logo img {
@@ -319,7 +329,7 @@ a {
   .header-nav {
     width: 100%;
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 12px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -327,35 +337,24 @@ a {
 
   .header-nav .nav-btn {
     flex: 1;
-    text-align: center;
     padding: 10px 0;
     font-size: 14px;
-  }
-
-  /* ===== セクション ===== */
-  .section {
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-
-  .section-title {
-    font-size: 22px;
-    margin-bottom: 16px;
   }
 
   /* ===== メニュー ===== */
   .menu {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 18px; /* 余白を広げる */
   }
 
   .menu-item {
-    padding: 18px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* 影を弱く */
+    font-size: 16px;
   }
 
-  /* ===== スライダー ===== */
+  /* ===== カードスライダー ===== */
   .card-slide {
     min-width: 100%;
   }
@@ -371,8 +370,9 @@ a {
   /* ===== モデラボカード ===== */
   .modelabo-card {
     flex-direction: column;
-    padding: 18px;
-    gap: 18px;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 14px;
   }
 
   .modelabo-card-image {
@@ -389,22 +389,23 @@ a {
 
   .modelabo-card-desc {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   .modelabo-btn {
     width: 100%;
-    text-align: center;
     padding: 12px 0;
+    text-align: center;
   }
 
   /* ===== 記事一覧 ===== */
   .article-list {
-    padding: 0 16px;
+    padding: 0 18px;
   }
 
   .article-card {
-    padding: 18px;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .article-title {
